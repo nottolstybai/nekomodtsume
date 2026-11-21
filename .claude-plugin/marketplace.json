@@ -1,0 +1,5 @@
+{
+  "name": "nekomodtsume",
+  "owner": { "name": "nottolstybai" },
+  "plugins": [{ "name": "kotodvor", "source": "./" }]
+}

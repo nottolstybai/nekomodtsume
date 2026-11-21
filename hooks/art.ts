@@ -1,0 +1,92 @@
+// Pixel art of the cat yard, drawn in REGION letters; a coat maps regions to colours.
+//   O outline  E eye  C closed eye  N nose  P inner ear
+//   W main fur  M chest/paws  T head cap patch  R back patch  S tail  G soft shade
+
+export type Pose = "sit" | "sleep" | "walkA" | "walkB" | "eat"
+export type Coat = "calico" | "ginger" | "gray" | "black" | "white"
+
+export const SPRITES: Record<Pose, readonly string[]> = {
+  sit: [
+    "..O.........O....",
+    ".OPO.......OPO...",
+    ".OPTOOOOOOOTPO...",
+    "OTTTTTTWWWWWWWO..",
+    "OTTTTTWWWWWWWWO..",
+    "OWWEWWWWWWWEWWO..",
+    "OWWEWWWNWWWEWWO..",
+    "OWWWWWOWOWWWWWO..",
+    ".OWWWWWWWWWWWO...",
+    "..OWWWWMWWWWO....",
+    "..OWWWMMMWWWO....",
+    ".OWWWMMMMMWWWO...",
+    ".ORRWWMMMWWWWO.OO",
+    ".ORRRWOMOWWWWOOSO",
+    ".ORRRWOWOWWWWOSO.",
+    ".ORRWWOWOWWWWSO..",
+    ".OGWWWOMOWWWGOO..",
+    "..OOOOOOOOOOOO...",
+  ],
+  sleep: [
+    "..O.....O..OOOOO...",
+    ".OPO...OPOOWWWWWOO.",
+    ".OPTOOOOPOWWWWRRRWO",
+    "OTTTTWWWWWWWWRRRRWO",
+    "OWCCWWWCCWWWWWRRRWO",
+    "OWWWWNWWWWWWWWWWWWO",
+    "OWWWOWOWWWWWWWWWWWO",
+    ".OWOOOOOOOOWWWWWWWO",
+    ".OSSSSSSSSSOWWWWWO.",
+    "..OOOOOOOOOOOOOOO..",
+  ],
+  walkA: [
+    "..........O.....O..",
+    ".........OPO...OPO.",
+    ".........OPTOOOTPO.",
+    ".OO.....OTTTTWWWWWO",
+    "OSSO....OTTWWWWWWWO",
+    "OSO.....OWEWWWWWEWO",
+    "OSO.OOOOOWEWWNWWEWO",
+    ".OSORRWWOWWWOWOWWWO",
+    "..ORRRWWWOWWWWWWWO.",
+    "..ORRWWWWWOOOOOOO..",
+    "..OGWWWWWWWWWWWGO..",
+    "..OWOWOOOOOOWOWO...",
+    "..OOOOO....OOOOO...",
+  ],
+  walkB: [
+    "..........O.....O..",
+    ".........OPO...OPO.",
+    ".........OPTOOOTPO.",
+    ".OO.....OTTTTWWWWWO",
+    "OSSO....OTTWWWWWWWO",
+    "OSO.....OWEWWWWWEWO",
+    "OSO.OOOOOWEWWNWWEWO",
+    ".OSORRWWOWWWOWOWWWO",
+    "..ORRRWWWOWWWWWWWO.",
+    "..ORRWWWWWOOOOOOO..",
+    "..OGWWWWWWWWWWWGO..",
+    "...OOWWOOOOOOWWO...",
+    "....OOOO....OOOO...",
+  ],
+  eat: [
+    ".OO...................",
+    "OSSO.........O.....O..",
+    "OSO.........OPO...OPO.",
+    "OSO.OOOOOOOOOPTOOOTPO.",
+    ".OSORRWWWWWOTTTTWWWWWO",
+    "..ORRRWWWWWOTTWWWWWWWO",
+    "..ORRWWWWWWOWCWWWWWCWO",
+    "..OGWWWWWWWOWWWWNWWWWO",
+    "...OOWWOOOOOWWWOWOWWWO",
+    "....OOOO....OWWWWWWWO.",
+    ".............OOOOOOO..",
+  ],
+}
+
+export const COATS: Record<Coat, Record<string, string>> = {
+  calico: {O: "#4a4040", E: "#2b2626", C: "#4a4040", N: "#f2a0a8", P: "#f6c1c6", W: "#fffdf8", M: "#fffdf8", G: "#ece4d8", T: "#f0a052", R: "#5c5656", S: "#5c5656"},
+  ginger: {O: "#4a4040", E: "#2b2626", C: "#4a4040", N: "#f2a0a8", P: "#f6c1c6", W: "#f3ae64", M: "#fffdf8", G: "#e09a50", T: "#f3ae64", R: "#f3ae64", S: "#f3ae64"},
+  gray: {O: "#4a4040", E: "#2b2626", C: "#4a4040", N: "#f2a0a8", P: "#f6c1c6", W: "#b7b9c0", M: "#fffdf8", G: "#a3a5ad", T: "#b7b9c0", R: "#b7b9c0", S: "#b7b9c0"},
+  black: {O: "#221e22", E: "#e8d25a", C: "#8a7d84", N: "#f2a0a8", P: "#b98790", W: "#3a3439", M: "#3a3439", G: "#312c31", T: "#3a3439", R: "#3a3439", S: "#3a3439"},
+  white: {O: "#4a4040", E: "#2b2626", C: "#4a4040", N: "#f2a0a8", P: "#f6c1c6", W: "#fffdf8", M: "#fffdf8", G: "#ece4d8", T: "#fffdf8", R: "#fffdf8", S: "#fffdf8"},
+}
