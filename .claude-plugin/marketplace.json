@@ -1,5 +1,5 @@
 {
   "name": "nekomodtsume",
   "owner": { "name": "nottolstybai" },
-  "plugins": [{ "name": "kotodvor", "source": "./" }]
+  "plugins": [{ "name": "nekomodtsume", "source": "./" }]
 }

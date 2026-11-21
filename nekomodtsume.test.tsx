@@ -3,11 +3,11 @@ import { expect, mock, test } from 'claude-code/testing'
 import { BOWL_MS, bowlLevel, presentCats } from './hooks/sim'
 
 const PANE = {
-  plugin: 'kotodvor',
+  plugin: 'nekomodtsume',
   component: 'Pane',
-  requestId: 'kotodvor',
+  requestId: 'nekomodtsume',
   props: {
-    title: 'Котодвор',
+    title: 'Nekomodtsume',
     isFocused: false,
     bodyColumns: 60,
     placement: 'dock',
@@ -41,7 +41,7 @@ test('the pane draws the yard and the feed button fills the bowl', async ($, on)
   on('store.get', (_, e) => ({ value: stored[e.key] }))
   on('store.set', (_, e) => { stored[e.key] = e.value; return { value: undefined } })
   on('ui.blit', () => ({ value: {} }))
-  on('ui.panes', () => ({ value: [{ id: 'kotodvor', title: 'Котодвор', isShown: true, isFocused: false, isPlaced: true }] }))
+  on('ui.panes', () => ({ value: [{ id: 'nekomodtsume', title: 'Nekomodtsume', isShown: true, isFocused: false, isPlaced: true }] }))
 
   const ui = await $.ui.mount({ ...PANE, surface: 'terminal' })
   const yard = await ui.find({ type: 'Raster', key: 'yard' })

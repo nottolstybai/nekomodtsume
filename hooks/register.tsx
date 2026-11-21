@@ -1,4 +1,4 @@
-// Котодвор: a quiet cat yard in a side pane. Feed the bowl; cats come and go on their own.
+// Nekomodtsume: a quiet cat yard in a side pane. Feed the bowl; cats come and go on their own.
 import type { EngineInterface, Register, Timer } from 'claude-code'
 
 import { BOWL_MS, bowlLevel, drawables, leave, presentCats, spawn, step } from './sim'
@@ -7,8 +7,8 @@ import { ROWS, W, cells, compose } from './yard'
 
 type Dollar = EngineInterface
 
-const PANE = 'kotodvor'
-const TITLE = 'Котодвор'
+const PANE = 'nekomodtsume'
+const TITLE = 'Nekomodtsume'
 const FRAME_MS = 333 // ~3 fps
 const IDLE_POLL_MS = 5000 // while the pane is open but hidden
 const PRESENCE_MS = 60e3
@@ -103,16 +103,16 @@ const open = ($: Dollar) => $.ui.open({ id: PANE, title: TITLE, columns: W, rows
 
 export const register: Register = on => {
   on('session.start', async ($, e, next) => {
-    await $.command.register({ name: 'kotodvor', description: 'Открыть котодвор: двор с котами в боковой панели' })
+    await $.command.register({ name: 'nekomodtsume', description: 'Открыть Nekomodtsume: двор с котами в боковой панели' })
     await load($)
     void open($)
     return next(e)
   })
 
-  on('command.run', { command: 'kotodvor' }, async $ => {
+  on('command.run', { command: 'nekomodtsume' }, async $ => {
     await load($)
     await open($)
-    return { text: 'Котодвор открыт.' }
+    return { text: 'Nekomodtsume открыт.' }
   })
 
   on('ui.close', async ($, e, next) => {
@@ -123,7 +123,7 @@ export const register: Register = on => {
   on('ui.render', { component: 'Pane', requestId: PANE }, async ($, e) => {
     if (e.surface !== 'terminal') {
       const { Text } = $.ui.resolve(e)
-      return <Text dimColor>Котодвор пока рисуется только в терминале.</Text>
+      return <Text dimColor>Nekomodtsume пока рисуется только в терминале.</Text>
     }
     const { Box, Button, Raster } = $.ui.resolve(e)
     await load($)
